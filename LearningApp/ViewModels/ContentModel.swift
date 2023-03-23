@@ -8,11 +8,14 @@
 import Foundation
 class ContentModel: ObservableObject {
     @Published var modules = [Module]()
-    var styleData: Data?
+    @Published var currModule: Module?
+    var currModuleIndex = 0
     
+    var styleData: Data?
     init() {
         getLocalData()
     }
+    // MARK: Data Method
     func getLocalData() {
         // get the url to json file
         let pathString = Bundle.main.url(forResource: "data", withExtension: "json")
@@ -38,5 +41,17 @@ class ContentModel: ObservableObject {
         } catch {
             print("couldn't parse local data style")
         }
+    }
+    // MARK: Module navigation methods
+    func beginModule(_ moduleId: Int) {
+        // Find the index for this module id
+        for index in 0..<modules.count {
+            if modules[index].id == moduleId {
+                currModuleIndex = index
+                break
+            }
+        }
+        // Set the current module
+        currModule = modules[currModuleIndex]
     }
 }
