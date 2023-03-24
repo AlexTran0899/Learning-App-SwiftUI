@@ -7,6 +7,7 @@
 
 import Foundation
 class ContentModel: ObservableObject {
+    @Published var currentContentSelected: Int?
     @Published var lessonDescription = NSAttributedString()
     @Published var modules = [Module]()
     @Published var currModule: Module?

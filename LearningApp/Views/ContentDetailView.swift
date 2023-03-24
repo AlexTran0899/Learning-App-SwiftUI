@@ -27,12 +27,21 @@ struct ContentDetailView: View {
                     model.nextLesson()
                 } label: {
                     ZStack{
-                        Rectangle()
-                            .foregroundColor(.green)
+                        RectangleCard(color: .green)
                             .frame(height: 48)
-                            .cornerRadius(10)
-                            .shadow(radius: 5)
                         Text("Next Lesson: \(model.nextLessonTitle())")
+                            .foregroundColor(.white)
+                            .bold()
+                    }
+                }
+            } else {
+                Button {
+                    model.currentContentSelected = nil
+                } label: {
+                    ZStack{
+                        RectangleCard(color: .green)
+                            .frame(height: 48)
+                        Text("Complete: Back to home Screen")
                             .foregroundColor(.white)
                             .bold()
                     }
@@ -44,14 +53,14 @@ struct ContentDetailView: View {
     }
 }
 
-struct ContentDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        let model = ContentModel()
-        ContentDetailView()
-            .onAppear{
-                model.beginModule(0)
-                model.beginLesson(0)
-            }
-            .environmentObject(model)
-    }
-}
+//struct ContentDetailView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        let model = ContentModel()
+//        ContentDetailView()
+//            .onAppear{
+//                model.beginModule(0)
+//                model.beginLesson(0)
+//            }
+//            .environmentObject(model)
+//    }
+//}

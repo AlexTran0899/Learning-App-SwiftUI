@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		81CC41C829CD3C5D0091FF7F /* CodeTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CC41C729CD3C5D0091FF7F /* CodeTextView.swift */; };
+		FA185B8929CE27B2001762F9 /* RectangleCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA185B8829CE27B2001762F9 /* RectangleCard.swift */; };
 		FAC9435929CC9533005B079F /* LearningApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC9435829CC9533005B079F /* LearningApp.swift */; };
 		FAC9435B29CC9533005B079F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC9435A29CC9533005B079F /* HomeView.swift */; };
 		FAC9435D29CC9534005B079F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAC9435C29CC9534005B079F /* Assets.xcassets */; };
@@ -26,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		81CC41C729CD3C5D0091FF7F /* CodeTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeTextView.swift; sourceTree = "<group>"; };
+		FA185B8829CE27B2001762F9 /* RectangleCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleCard.swift; sourceTree = "<group>"; };
 		FAC9435529CC9533005B079F /* LearningApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LearningApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAC9435829CC9533005B079F /* LearningApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningApp.swift; sourceTree = "<group>"; };
 		FAC9435A29CC9533005B079F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				FAC9437929CCC0A6005B079F /* ContentViewRow.swift */,
 				FAC9437B29CCD1CF005B079F /* ContentDetailView.swift */,
 				81CC41C729CD3C5D0091FF7F /* CodeTextView.swift */,
+				FA185B8829CE27B2001762F9 /* RectangleCard.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 				81CC41C829CD3C5D0091FF7F /* CodeTextView.swift in Sources */,
 				FAC9437429CC9A9C005B079F /* Models.swift in Sources */,
 				FAC9437629CCA194005B079F /* HomeViewRow.swift in Sources */,
+				FA185B8929CE27B2001762F9 /* RectangleCard.swift in Sources */,
 				FAC9438129CCD4FF005B079F /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -367,6 +371,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -396,6 +401,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

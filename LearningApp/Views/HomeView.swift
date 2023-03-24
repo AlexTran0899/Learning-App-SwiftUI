@@ -9,22 +9,22 @@ import SwiftUI
 
 struct HomeView: View {
     @EnvironmentObject var model: ContentModel
-    
+
     var body: some View {
         NavigationView {
             ScrollView  {
                 LazyVStack(alignment: .leading, spacing: 20) {
                     Text("What do you want to do today?")
                     ForEach(model.modules) { m in
-                        NavigationLink {
+                        NavigationLink(tag: m.id, selection: $model.currentContentSelected, destination: {
                             ContentView()
                                 .onAppear {
                                     model.beginModule(m.id)
                                 }
-                        } label: {
+                        }, label: {
                             // learning card
                             HomeViewRow(title: "Learn \(m.category)", description: m.content.description, image: m.content.image, count: "\(m.content.lessons.count) Lessons", time: m.content.time)
-                        }
+                        })
                         NavigationLink {
                             
                         } label: {
