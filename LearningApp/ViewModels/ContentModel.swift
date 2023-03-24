@@ -7,8 +7,11 @@
 
 import Foundation
 class ContentModel: ObservableObject {
+    @Published var currentTestSelected: Int?
+    @Published var currentQuestion: Question?
+    @Published var currentQuestionIndex: Int?
     @Published var currentContentSelected: Int?
-    @Published var lessonDescription = NSAttributedString()
+    @Published var codeText = NSAttributedString()
     @Published var modules = [Module]()
     @Published var currModule: Module?
     var currModuleIndex = 0
@@ -67,7 +70,7 @@ class ContentModel: ObservableObject {
             currLessonIndex = 0
         }
         currLesson = currModule?.content.lessons[currLessonIndex]
-        lessonDescription = addStyling(currLesson!.explanation)
+        codeText = addStyling(currLesson!.explanation)
     }
     func hasNextLesson() -> Bool {
         if currModule?.content.lessons.count != nil {
@@ -80,11 +83,11 @@ class ContentModel: ObservableObject {
         currLessonIndex += 1
         if currLessonIndex < currModule!.content.lessons.count {
             currLesson = currModule!.content.lessons[currLessonIndex]
-            lessonDescription = addStyling(currLesson!.explanation)
+            codeText = addStyling(currLesson!.explanation)
         } else {
             currLessonIndex = 0
             currLesson = nil
-            lessonDescription = NSAttributedString()
+            codeText = NSAttributedString()
         }
     }
     func nextLessonTitle() -> String {
@@ -109,7 +112,19 @@ class ContentModel: ObservableObject {
         } catch {
             print(error)
         }
-        
         return resultString
+    }
+
+    func beginTest(_ moduleID: Int) {
+        // Set the current module
+        beginModule(moduleID)
+        // Set the current question
+        currentQuestionIndex = 0
+        // If there are questions, se tthe current question to the first one
+        if currModule?.test.questions.count ?? 0 > 0 {
+            currentQuestion = currModule?.test.questions[0]
+            codeText = addStyling(currentQuestion!.content)
+        }
+        
     }
 }

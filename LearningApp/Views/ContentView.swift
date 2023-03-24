@@ -24,7 +24,7 @@ struct ContentView: View {
                         }
                     }
                 }
-            }.navigationTitle("Learn \(model.currModule?.category ?? "")")
+            }.navigationBarTitle("Learn \(model.currModule?.category ?? "")")
                 .accentColor(.black)
             .padding()
         }
