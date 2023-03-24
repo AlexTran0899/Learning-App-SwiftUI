@@ -14,10 +14,18 @@ struct ContentView: View {
             LazyVStack {
                 if model.currModule != nil {
                     ForEach(0..<model.currModule!.content.lessons.count, id: \.self) { index in
-                        ContentViewRow(index: index)
+                        NavigationLink {
+                            ContentDetailView()
+                                .onAppear{
+                                    model.beginLesson(index)
+                                }
+                        } label: {
+                            ContentViewRow(index: index)
+                        }
                     }
                 }
             }.navigationTitle("Learn \(model.currModule?.category ?? "")")
+                .accentColor(.black)
             .padding()
         }
     }
@@ -25,7 +33,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        var model = ContentModel()
+        let model = ContentModel()
         ContentView()
             .environmentObject(model)
             .onAppear{
