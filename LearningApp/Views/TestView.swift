@@ -81,6 +81,7 @@ struct TestView: View {
             .navigationBarTitle("\(model.currModule?.category ?? "") Test")
         } else {
             ProgressView()
+            TestResultView(numCorrect: numCorrect)
         }
     }
     var buttonText: String {

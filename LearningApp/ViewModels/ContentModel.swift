@@ -22,6 +22,7 @@ class ContentModel: ObservableObject {
     var styleData: Data?
     init() {
         getLocalData()
+        getRemoteData()
     }
     // MARK: Data Method
     func getLocalData() {
@@ -89,6 +90,40 @@ class ContentModel: ObservableObject {
             currLesson = nil
             codeText = NSAttributedString()
         }
+    }
+    func getRemoteData() {
+        // string path
+        let urlString = "https://raw.githubusercontent.com/AlexTran0899/Learning-App-SwiftUI/main/data2.json"
+        let url = URL(string: urlString)
+        guard url != nil else {
+            return
+        }
+        
+        // create a urlRequest object
+        let request = URLRequest(url: url!)
+        // get the session and kick off the task
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: request) { (data, res, err) in
+            // check if there's an error
+            guard err == nil else {
+                // There was an error
+                print("There was a network error")
+                return
+            }
+            // handle the response
+            do {
+                // create json decoder
+                let jsonDecoder = JSONDecoder()
+                let modules = try jsonDecoder.decode([Module].self, from: data!)
+                DispatchQueue.main.async {
+                    self.modules += modules
+                }
+            } catch {
+                print(error)
+            }
+        }
+        // kick of the dataTask
+        dataTask.resume()
     }
     
     func nextQuestion() {
