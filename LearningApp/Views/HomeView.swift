@@ -37,6 +37,11 @@ struct HomeView: View {
                 }.accentColor(.black)
                     .padding()
             }.navigationTitle("Get Started")
+                .onChange(of: model.currentContentSelected) { changeValue in
+                    if changeValue == nil {
+                        model.currModule = nil
+                    }
+                }
         }.navigationViewStyle(.stack)
     }
 }
