@@ -90,6 +90,22 @@ class ContentModel: ObservableObject {
             codeText = NSAttributedString()
         }
     }
+    
+    func nextQuestion() {
+        // advance the question index
+        currentQuestionIndex! += 1
+        // check that it's within the range of questions
+        if currentQuestionIndex! < currModule!.test.questions.count {
+            currentQuestion = currModule!.test.questions[currentQuestionIndex!]
+            codeText = addStyling(currentQuestion!.content)
+        } else {
+            currentQuestionIndex = 0
+            currentQuestion = nil
+            codeText = NSAttributedString()
+        }
+        // if not reset the properties
+    }
+    
     func nextLessonTitle() -> String {
         if hasNextLesson() {
             return currModule?.content.lessons[currLessonIndex + 1].title ?? ""
